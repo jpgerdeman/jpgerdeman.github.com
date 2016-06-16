@@ -8,9 +8,9 @@ I'll assume your PHP file looks something like this right now.
 	{
 		$uname = isset($_GET['uname'])?$_GET['uname']:'anonymous';
 
-		mysqli_connect($server, $username, $password);
+		$link = mysqli_connect($server, $username, $password);
 		$stmt = 'SELECT * from user WHERE uname = '.$uname;
-		$result = mysqli_stmt_fetch( $stmt );
+		$result = mysqli_query($link, $query);
 		$user = mysqli_fetch_object($result);
 
 		echo "Profile";
@@ -22,9 +22,9 @@ I'll assume your PHP file looks something like this right now.
 	{
 		$uname = isset($_GET['uname'])?$_GET['uname']:'anonymous';
 
-		mysqli_connect($server, $username, $password);
+		$link = mysqli_connect($server, $username, $password);
 		$stmt = 'SELECT * from user WHERE uname = '.$uname;
-		$result = mysqli_stmt_fetch( $stmt );
+		$result = mysqli_query($link, $query);
 		$user = mysqli_fetch_object($result);
 
 		printf('Hello %s', $user->name);
