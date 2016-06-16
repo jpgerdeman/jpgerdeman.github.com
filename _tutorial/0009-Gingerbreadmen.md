@@ -10,9 +10,9 @@ There is one other thing that we'll change. Change your `lib\Database.php` to lo
     {
         static public function retrieveUser( $name )
         {
-            mysqli_connect($server, $username, $password);
+            $link = mysqli_connect($server, $username, $password);
             $stmt = 'SELECT * from user WHERE uname = '.$name;
-            $result = mysqli_stmt_fetch( $stmt );
+            $result = mysqli_query($link, $query);
             $user = mysqli_fetch_object($result);
             return $user;
         }
