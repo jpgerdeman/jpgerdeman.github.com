@@ -131,13 +131,13 @@ OK lets create that orm/library/Driver.php
 		public function select( $stmt, $connectionname )
 		{
 			$con = $this->openConnection($connectionname);
-			$result = mysql_query( $stmt, $con );
+			$result = mysqli_query( $stmt, $con );
 			$resultList = array();
-			while ($line = mysql_fetch_array($result))
+			while ($line = mysqli_fetch_array($result))
 			{
 				$resultList[] = $line;
 			}
-			mysql_free_result($result);
+			mysqli_free_result($result);
 			$this->closeConnection($con);
 			return $resultList;
 		}
@@ -145,7 +145,7 @@ OK lets create that orm/library/Driver.php
 		public function insert( $stmt, $connectionname )
 		{
 			$con = $this->openConnection($connectionname);
-			$isSuccess = mysql_query( $stmt, $con );
+			$isSuccess = mysqli_query( $stmt, $con );
 			$this->closeConnection($con);
 			return $isSuccess;
 		}
@@ -153,13 +153,13 @@ OK lets create that orm/library/Driver.php
 		private function openConnection( $connectionname )
 		{
 			$con = $this->connections[$connectionname];
-			mysql_connect($con->getHost(),$con->getUsername(),$con->getPassword());
-			mysql_select_db($con->getDatabase());
+			mysqli_connect($con->getHost(),$con->getUsername(),$con->getPassword());
+			mysqli_select_db($con->getDatabase());
 		}
 
 		private function closeConnection($con)
 		{
-			mysql_close($con);
+			mysqli_close($con);
 		}
 	}
 

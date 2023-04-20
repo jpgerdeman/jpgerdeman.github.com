@@ -22,8 +22,8 @@ Create setters for these and put the connection code into its own method. Since 
                 
         public function connect()
         {
-            mysql_connect($this->location,$this->username,$this->passwd);
-            mysql_select_db($this->dbname);     
+            mysqli_connect($this->location,$this->username,$this->passwd);
+            mysqli_select_db($this->dbname);     
         }
     
         public function retrieveUserByUname( $uname )
