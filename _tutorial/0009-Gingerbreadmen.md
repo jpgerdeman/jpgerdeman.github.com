@@ -143,6 +143,6 @@ In our pet example `$this` refers to the instance. Using `$this` in a static met
     $b->eat(); //cat is eating
     Pet::$allDead = true;
     $a->eat(); //dog is dead
-    $b->eat(); //cat is eating
+    $b->eat(); //cat is dead
 
 This seems like a good place to stop for now. This is a very brief introduction to object orientation. We'll talk more about this paradigm later. For now I suggest you reread this text and make sure you have understood things, especially the difference between class and instance, this far.

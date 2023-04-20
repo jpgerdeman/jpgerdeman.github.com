@@ -9,7 +9,7 @@ I'll assume your PHP file looks something like this right now.
 		$uname = isset($_GET['uname'])?$_GET['uname']:'anonymous';
 
 		$link = mysqli_connect($server, $username, $password);
-		$stmt = 'SELECT * from user WHERE uname = '.$uname;
+		$stmt = 'SELECT * from user WHERE uname = "'.$uname.'"';
 		$result = mysqli_query($link, $query);
 		$user = mysqli_fetch_object($result);
 
@@ -23,7 +23,7 @@ I'll assume your PHP file looks something like this right now.
 		$uname = isset($_GET['uname'])?$_GET['uname']:'anonymous';
 
 		$link = mysqli_connect($server, $username, $password);
-		$stmt = 'SELECT * from user WHERE uname = '.$uname;
+		$stmt = 'SELECT * from user WHERE uname = "'.$uname.'"';
 		$result = mysqli_query($link, $query);
 		$user = mysqli_fetch_object($result);
 

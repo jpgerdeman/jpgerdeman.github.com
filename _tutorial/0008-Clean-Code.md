@@ -19,7 +19,7 @@ We should also shield our database code from such an attack. Extract the databas
     <?php
     function retrieveUser( $name )
     {
-        $name = mysql_escape_string( $name );
+        $name = mysqli_escape_string( $name );
 	    $link = mysqli_connect( $server, $username, $password );
 	    $stmt = 'SELECT * from user WHERE uname = ' . $name;
 	    $result = mysqli_query($link, $query);
